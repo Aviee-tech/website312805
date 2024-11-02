@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Student Nexus</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="main.js" defer></script>
+    <script src="server.js" defer></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .card {
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="hero-gradient text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="/Users/avisheksah/Desktop/website/nitm.jpg" alt="" width="200" height="100">
+                    
+                    <h1 class="text-3xl font-bold tracking-tight">STUDENT HUB</h1>
+                </div>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#projects" class="nav-link hover:text-blue-200 transition-colors">Projects</a></li>
+                        <li><a href="#exams" class="nav-link hover:text-blue-200 transition-colors">Previous Year Exams</a></li>
+                        <li><a href="#notes" class="nav-link hover:text-blue-200 transition-colors">Notes</a></li>
+                        <li><a href="#research" class="nav-link hover:text-blue-200 transition-colors">Group Research</a></li>
+                        <li><a href="#contact" class="nav-link hover:text-blue-200 transition-colors">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <section class="card bg-white rounded-lg shadow-md p-6 hover:shadow-xl">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Student Projects</h2>
+                <p class="text-gray-600 mb-6">Share and collaborate on student projects across universities.</p>
+                <div class="flex flex-col space-y-4">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">
+                        View Projects
+                    </button>
+                    <a href="https://www.sciencedirect.com" class="text-blue-600 hover:text-blue-800 text-center">
+                        Submit Project
+                    </a>
+                </div>
+            </section>
+
+            <section class="card bg-white rounded-lg shadow-md p-6 hover:shadow-xl">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Previous Year Exams</h2>
+                <p class="text-gray-600 mb-6">Access previous year exam papers to help you prepare.</p>
+                <div class="flex flex-col space-y-4">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">
+                        View Exams
+                    </button>
+                    <a href="https://testbook.com/previous-year-papers" class="text-blue-600 hover:text-blue-800 text-center">
+                        Access Papers
+                    </a>
+                </div>
+            </section>
+
+            <section class="card bg-white rounded-lg shadow-md p-6 hover:shadow-xl">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Notes Repository</h2>
+                <p class="text-gray-600 mb-6">Find and share notes for various subjects and courses.</p>
+                <div class="flex flex-col space-y-4">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">
+                        View Notes
+                    </button>
+                    <a href="https://help.evernote.com/hc/en-us/articles/208313588-Note-links" class="text-blue-600 hover:text-blue-800 text-center">
+                        Share Notes
+                    </a>
+                </div>
+            </section>
+
+            <section class="card bg-white rounded-lg shadow-md p-6 hover:shadow-xl">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Group Research</h2>
+                <p class="text-gray-600 mb-6">Connect with other researchers for collaborative research.</p>
+                <div class="flex flex-col space-y-4">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">
+                        Join Group
+                    </button>
+                    <a href="https://chat.whatsapp.com/Kdp9Ov7mpQt3XcNNqGFzCX" class="text-blue-600 hover:text-blue-800 text-center">
+                        Chat Group
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div class="mt-16 grid md:grid-cols-2 gap-8">
+            <section class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Sign Up</h2>
+                <form action="/signup" method="POST" class="space-y-4">
+                    <div>
+                        <label for="username" class="block text-gray-700 mb-2">Username</label>
+                        <input type="text" id="username" name="username" required
+                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" name="email" required
+                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="password" class="block text-gray-700 mb-2">Password</label>
+                        <input type="password" id="password" name="password" required
+                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <button type="submit" 
+                        class="w-full bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">
+                        Sign Up
+                    </button>
+                </form>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Log In</h2>
+                <form action="/login" method="POST" class="space-y-4">
+                    <div>
+                        <label for="login-username" class="block text-gray-700 mb-2">Username</label>
+                        <input type="text" id="login-username" name="username" required
+                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="login-password" class="block text-gray-700 mb-2">Password</label>
+                        <input type="password" id="login-password" name="password" required
+                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">
+                        Log In
+                    </button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-4 py-12">
+            <section id="contact" class="text-center">
+                <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+                <p class="text-gray-300">Email: studenthub310528@gmail.com</p>
+            </section>
+            <p class="text-center text-gray-400 mt-8">&copy; 2024 All Nexus Hub</p>
+        </div>
+    </footer>
+</body>
+</html>
